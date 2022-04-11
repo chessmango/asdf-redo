@@ -7,8 +7,8 @@ on:
   pull_request:
 
 env:
-  REDO_HISTORY_PATH=~/.bash_history
-  REDO_EDITOR=vim
+  REDO_HISTORY_PATH: ~/.bash_history
+  REDO_EDITOR: vim
 
 jobs:
   plugin_test:
