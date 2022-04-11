@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/jckuester/awsls"
-TOOL_NAME="awsls"
-TOOL_TEST="awsls --version"
+GH_REPO="https://github.com/barthr/redo"
+TOOL_NAME="redo"
+TOOL_TEST="redo help"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
@@ -13,7 +13,7 @@ fail() {
 
 curl_opts=(-fsSL)
 
-# NOTE: You might want to remove this if awsls is not hosted on GitHub releases.
+# NOTE: You might want to remove this if redo is not hosted on GitHub releases.
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
   curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
@@ -70,24 +70,9 @@ install_version() {
 }
 
 get_platform() {
-  uname -s | tr '[:upper:]' '[:lower:]'
+  uname -s
 }
 
 get_arch() {
-  local arch
-  arch=$(uname -m)
-  case $arch in
-  "x86_64")
-    echo "amd64"
-    ;;
-  "arm")
-    echo "armv7" # Super best effort - TODO: find useful way to split armv6/armv7 maybe
-    ;;
-  "aarch64" | "arm64")
-    echo "arm64"
-    ;;
-  *)
-    exit 1
-    ;;
-  esac
+  uname -m
 }
