@@ -4,7 +4,7 @@ set -euo pipefail
 
 GH_REPO="https://github.com/barthr/redo"
 TOOL_NAME="redo"
-TOOL_TEST="redo help"
+TOOL_TEST="REDO_HISTORY_PATH=~/.bash_history REDO_EDITOR=vim redo help"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"

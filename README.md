@@ -40,7 +40,7 @@ asdf install redo latest
 asdf global redo latest
 
 # Now redo commands are available
-redo help
+REDO_HISTORY_PATH=~/.bash_history REDO_EDITOR=vim redo help
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to

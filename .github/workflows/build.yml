@@ -19,4 +19,4 @@ jobs:
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v1
         with:
-          command: redo help
+          command: REDO_HISTORY_PATH=~/.bash_history REDO_EDITOR=vim redo help
