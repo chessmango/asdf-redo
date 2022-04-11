@@ -6,6 +6,10 @@ on:
       - main
   pull_request:
 
+env:
+  REDO_HISTORY_PATH=~/.bash_history
+  REDO_EDITOR=vim
+
 jobs:
   plugin_test:
     name: asdf plugin test
@@ -19,4 +23,4 @@ jobs:
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v1
         with:
-          command: REDO_HISTORY_PATH=~/.bash_history REDO_EDITOR=vim redo help
+          command: redo help
